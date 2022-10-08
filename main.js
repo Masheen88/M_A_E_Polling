@@ -85,8 +85,8 @@ checkIp().catch((error) => {
   alert("It appears you have adblocker enabled, please disable and try again");
   submit.disabled = true;
 });
-let ip = "https://api.ipify.org?format=json"; // gets ip address from browser
-// if adblocker is on disable submit button
+
+//if adblocker is on disable submit button
 if (typeof ip === "undefined") {
   submit.disabled = true;
 }
@@ -94,72 +94,83 @@ if (typeof ip === "undefined") {
 // on submit button click get values from form and ip address and post to api
 submit.addEventListener("click", function () {
   // if nothing is selected alert user to select a time of day
-  if (
-    !document.getElementById("morning").checked &&
-    !document.getElementById("afternoon").checked &&
-    !document.getElementById("evening").checked
-  ) {
-    alert("Please select a time of day");
-  } else if (document.getElementById("morning").checked) {
-    // if morning is selected post to api
-    fetch(apiEndPoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        timeOfDay: morningValue,
-        ipAddress: ip,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        checkIp();
-        // console.log("Success:", data);
+  getIp();
+  // async await getIp function
+  async function getIp() {
+    let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
+    let ipData = await ip.json();
+    ip = ipData.ip;
+
+    if (
+      !document.getElementById("morning").checked &&
+      !document.getElementById("afternoon").checked &&
+      !document.getElementById("evening").checked
+    ) {
+      alert("Please select a time of day");
+    } else if (document.getElementById("morning").checked) {
+      // if morning is selected post to api
+      console.log("morning ip", ip);
+      fetch(apiEndPoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          timeOfDay: morningValue,
+          ipAddress: ip,
+        }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  } else if (document.getElementById("afternoon").checked) {
-    // if afternoon is selected post to api
-    fetch(apiEndPoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        timeOfDay: afternoonValue,
-        ipAddress: ip,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        checkIp;
-        // console.log("Success:", data);
+        .then((response) => response.json())
+        .then((data) => {
+          checkIp();
+          // console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else if (document.getElementById("afternoon").checked) {
+      // if afternoon is selected post to api
+      console.log("afternoon ip:", ip);
+      fetch(apiEndPoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          timeOfDay: afternoonValue,
+          ipAddress: ip,
+        }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  } else if (document.getElementById("evening").checked) {
-    // if evening is selected post to api
-    fetch(apiEndPoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        timeOfDay: eveningValue,
-        ipAddress: ip,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        checkIp;
-        // console.log("Success:", data);
+        .then((response) => response.json())
+        .then((data) => {
+          checkIp();
+          // console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else if (document.getElementById("evening").checked) {
+      // if evening is selected post to api
+      console.log("evening ip:", ip);
+      fetch(apiEndPoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          timeOfDay: eveningValue,
+          ipAddress: ip,
+        }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          checkIp();
+          // console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   }
 });
 // API Section - End
