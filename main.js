@@ -73,6 +73,9 @@ async function checkIp() {
   if (ipExists) {
     alert("You have already voted");
     submit.disabled = true;
+  } else {
+    submit.disabled = false;
+    return;
   }
 }
 
