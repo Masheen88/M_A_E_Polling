@@ -85,7 +85,7 @@ checkIp().catch((error) => {
   alert("It appears you have adblocker enabled, please disable and try again");
   submit.disabled = true;
 });
-
+let ip = "https://api.ipify.org?format=json"; // gets ip address from browser
 // if adblocker is on disable submit button
 if (typeof ip === "undefined") {
   submit.disabled = true;
