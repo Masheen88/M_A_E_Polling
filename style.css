@@ -1,0 +1,81 @@
+body {
+  color: white;
+  background-color: black;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#pollingContent {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  justify-self: center;
+  margin: 5px auto;
+  width: 100px;
+  height: 100px;
+}
+
+#morningImg:hover {
+  /* circle highlight  */
+  border: 1px solid white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+#afternoonImg:hover {
+  /* circle highlight  */
+  border: 1px solid white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+#eveningImg:hover {
+  /* circle highlight  */
+  border: 1px solid white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* center pollItem */
+.pollitem {
+  text-align: center;
+}
+
+/* center submit button inside existing grid */
+#submit {
+  border: 1px solid;
+  color: white;
+  background-color: #000000;
+  margin: 5px auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit:disabled {
+  color: red;
+  text-decoration: line-through;
+}
+
+/* if body is yellow fade #submit color and background color */
+body.yellow #submit {
+  color: black;
+  background-color: yellow;
+}
+
+/* if body is orange fade #submit color and background color */
+body.orange #submit {
+  color: black;
+  background-color: orange;
+}
+
+/* if body is blue fade #submit color and background color */
+body.blue #submit {
+  color: white;
+  background-color: blue;
+}

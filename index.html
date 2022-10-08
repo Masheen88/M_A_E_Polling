@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="body">
+    <div id="pollingContent">
+      <h1>Polling</h1>
+
+      <form>
+        <label for="poll"
+          >What time of day do you prefer to study? <br
+        /></label>
+        <br />
+        <div class="pollitem">
+          <input type="radio" id="morning" name="poll" value="morning" hidden />
+          <label for="morning"
+            ><img id="morningImg" src="./images/morning.png" alt="morning"
+          /></label>
+        </div>
+        <br />
+        <div class="pollitem">
+          <input
+            type="radio"
+            id="afternoon"
+            name="poll"
+            value="afternoon"
+            hidden
+          />
+          <label for="afternoon"
+            ><img
+              id="afternoonImg"
+              src="./images/afternoon.png"
+              alt="afternoon"
+            />
+          </label>
+        </div>
+        <br />
+        <div class="pollitem">
+          <input type="radio" id="evening" name="poll" value="evening" hidden />
+          <label for="evening"
+            ><img id="eveningImg" src="./images/evening.png" alt="evening" />
+          </label>
+        </div>
+        <br />
+        <input id="submit" type="button" value="Submit" />
+      </form>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
