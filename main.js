@@ -60,12 +60,12 @@ async function checkIp() {
   console.log("checkIp function called");
   let response = await fetch(apiEndPoint);
   let data = await response.json();
-  console.log(data);
+  //   console.log(data);
   let ip = await fetch("https://api.ipify.org?format=json"); // gets ip address from browser
   let ipData = await ip.json();
   let ipExists = false;
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i].ipAddress);
+    // console.log(data[i].ipAddress);
     if (data[i].ipAddress === ipData.ip) {
       ipExists = true;
     }
