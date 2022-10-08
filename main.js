@@ -71,7 +71,7 @@ async function checkIp() {
     }
   }
   if (ipExists) {
-    alert("You have already voted");
+    // alert("You have already voted");
     submit.disabled = true;
   } else {
     submit.disabled = false;
@@ -122,6 +122,7 @@ submit.addEventListener("click", function () {
       })
         .then((response) => response.json())
         .then((data) => {
+          alert("Thank you for voting");
           checkIp();
           // console.log("Success:", data);
         })
@@ -143,6 +144,7 @@ submit.addEventListener("click", function () {
       })
         .then((response) => response.json())
         .then((data) => {
+          alert("Thank you for voting");
           checkIp();
           // console.log("Success:", data);
         })
@@ -164,6 +166,7 @@ submit.addEventListener("click", function () {
       })
         .then((response) => response.json())
         .then((data) => {
+          alert("Thank you for voting");
           checkIp();
           // console.log("Success:", data);
         })
