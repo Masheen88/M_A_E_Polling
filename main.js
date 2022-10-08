@@ -114,7 +114,8 @@ submit.addEventListener("click", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        checkIp();
+        // console.log("Success:", data);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -133,7 +134,8 @@ submit.addEventListener("click", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        checkIp;
+        // console.log("Success:", data);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -152,7 +154,8 @@ submit.addEventListener("click", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        checkIp;
+        // console.log("Success:", data);
       })
       .catch((error) => {
         console.error("Error:", error);
