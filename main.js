@@ -100,37 +100,62 @@ submit.addEventListener("click", function () {
     !document.getElementById("evening").checked
   ) {
     alert("Please select a time of day");
-  } else {
-    fetch(ip)
+  } else if (document.getElementById("morning").checked) {
+    // if morning is selected post to api
+    fetch(apiEndPoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        timeOfDay: morningValue,
+        ipAddress: ip,
+      }),
+    })
       .then((response) => response.json())
       .then((data) => {
-        let ipAddress = data.ip;
-        let morning = document.getElementById("morning").value;
-        let afternoon = document.getElementById("afternoon").value;
-        let evening = document.getElementById("evening").value;
-
-        let user = {
-          morning: morning,
-          afternoon: afternoon,
-          evening: evening,
-          ipAddress: ipAddress,
-        };
-
-        fetch(apiEndPoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(user),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Success:", data);
-            checkIp();
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else if (document.getElementById("afternoon").checked) {
+    // if afternoon is selected post to api
+    fetch(apiEndPoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        timeOfDay: afternoonValue,
+        ipAddress: ip,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else if (document.getElementById("evening").checked) {
+    // if evening is selected post to api
+    fetch(apiEndPoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        timeOfDay: eveningValue,
+        ipAddress: ip,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   }
 });
