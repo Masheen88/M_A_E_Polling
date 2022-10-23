@@ -65,17 +65,17 @@ img {
 /* if body is yellow fade #submit color and background color */
 body.yellow #submit {
   color: black;
-  background-color: yellow;
+  background-color: #ffff00;
 }
 
 /* if body is orange fade #submit color and background color */
 body.orange #submit {
   color: black;
-  background-color: orange;
+  background-color: #ffa500;
 }
 
 /* if body is blue fade #submit color and background color */
 body.blue #submit {
   color: white;
-  background-color: blue;
+  background-color: #0000ff;
 }
